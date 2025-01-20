@@ -1,13 +1,16 @@
-import LoginPage from './components/Regester & LogIn/LoginPage'
-import HomePage from './components/Home page/HomePage'
 
+import HomePage from './components/Home page/HomePage'
+import LoginPage from './components/Register/LoginPage'
+import SignInPage from './components/Register/SignInPage'
 
 export default function App() {
   
 
   return (
-      <HomePage />
+      //<HomePage />
       // <LoginPage />
+      <SignInPage />
+      //<LoginPage />
   )
 }
 
