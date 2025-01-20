@@ -34,10 +34,8 @@ export default function PaymentWindow() {
          
         <hr className="mb-3 mt-2"/>
         <form >
-          <div className="mb-7">
-            <label className="block text-right text-white mb-2" htmlFor="textDoc">
-              : شماره کارت 
-            </label>
+
+          <div className="mb-7 flex">
             <input
               type="number"
               id="number"
@@ -47,22 +45,13 @@ export default function PaymentWindow() {
               required
               onChange={onChangeCardNumberHandler}
             />
+            <label className="block w-[35%] text-right text-white mb-2" htmlFor="textDoc">
+              : شماره حساب 
+            </label>
           </div>
 
-          <div className="mb-4 flex "> 
-            <label className="w-[65%]  text-right text-white mb-2" htmlFor="textDoc">
-                {(CardNumber==6219861800252396) ? ("رضا صیدانلو") : ("")}
-              </label>
-            <label className="w-[35%] text-right text-white mb-2" htmlFor="textDoc">
-                : نام و نام خانوادگی
-              </label>
-          </div>
-  
          
-          <div className="mb-5">
-            <label className="block text-right text-white mb-2" htmlFor="date">
-              : مبلغ 
-            </label>
+          <div className="mb-5 flex">
             <input
               type="number"
               id="number"
@@ -72,6 +61,18 @@ export default function PaymentWindow() {
               required
               onChange={onChangeAmountHandler}
             />
+            <label className=" w-[35%] block text-right text-white mb-2" htmlFor="date">
+              : مبلغ 
+            </label>
+          </div>
+
+          <div className="mb-16  flex "> 
+            <label className="w-[65%]  text-right text-white mb-2" htmlFor="textDoc">
+                {(CardNumber==6219861800252396) ? ("رضا صیدانلو") : ("")}
+              </label>
+            <label className="w-[35%] text-right text-white mb-2" htmlFor="textDoc">
+                : نام و نام خانوادگی
+              </label>
           </div>
   
           <button

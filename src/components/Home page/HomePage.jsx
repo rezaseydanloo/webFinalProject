@@ -7,19 +7,28 @@ import { createContext, useState } from "react";
 
 export const AppContext = createContext(null)
 
+
 export default function HomePage(){
 
     const [Status , setStatus ] = useState(0)
+    const [AdminOption , setAdminOption] = useState(true)
+    const [isAdmin , setisAdmin] = useState(true)
    
     return(
 
-        <AppContext.Provider value={{Status , setStatus}}>
+        <AppContext.Provider value={{Status , setStatus , AdminOption , setAdminOption , isAdmin}}>
             <div className=" flex items-center  h-screen gap-x-3 justify-center bg-slate-800">
-            <div className=" caret-transparent w-[55%] h-[95%] flex justify-center gap-1 bg-slate-800  flex-wrap overflow-auto">
-                <ToolBar />
-                <Deposits />
-                <Payments />
-            </div>
+                {AdminOption ? (
+                    <div className=" caret-transparent w-[55%] h-[95%] flex justify-center gap-1 bg-slate-800  flex-wrap overflow-auto">
+                    <ToolBar />
+                    <Deposits />
+                    <Payments />
+                </div>
+                ):(
+                    <div className=" caret-transparent w-[55%] h-[95%] flex justify-center gap-1 bg-slate-800  flex-wrap overflow-auto">
+                    <ToolBar />
+                    </div>
+                )}
             <ThirdColumn />
         </div>
         </AppContext.Provider>

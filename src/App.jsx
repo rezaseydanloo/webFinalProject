@@ -7,9 +7,9 @@ export default function App() {
   
 
   return (
-      //<HomePage />
+      <HomePage />
       // <LoginPage />
-      <SignInPage />
+      //<SignInPage />
       //<LoginPage />
   )
 }
