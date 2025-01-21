@@ -10,6 +10,12 @@ export default function PaymentWindow() {
     const [CardNumber , setCardNumber ] = useState(null)
     const [Amount , setAmount ] = useState(null)
 
+    const [payTransaction , setpayTransaction] = useState({
+      payCardNumber: null,
+      payAmount : null ,
+      payDestinationName : null
+    })
+
     const onChangeCardNumberHandler = (e)=> {
         setCardNumber(e.target.value)
         console.log(CardNumber)
@@ -20,7 +26,27 @@ export default function PaymentWindow() {
     }
 
 
-    
+/*************************************************************************************************************************************
+ * send to transaction information in data base*/
+
+    const updatedTransaction = {
+      payCardNumber: CardNumber,
+      payAmount: Amount,
+      payDestinationName: CardNumber == 6219861800252396 ? "رضا صیدانلو" : null,
+    }
+    const onSubmitHandler = (e)=>{
+      e.preventDefault();
+      setpayTransaction(updatedTransaction);
+      console.log("Updated Transaction:", updatedTransaction);
+
+       /* in ja baraye ersal maghadir be table tarakonesh ha*/
+
+    }
+
+
+/*************************************************************************************************************************************
+ * payment Window body  */    
+
     return (
       <div className="caret-transparent h-[48%] w-[96%] rounded-lg overflow-auto mt-3 border-2 border-slate-500 bg-slate-700 p-4">
 
@@ -33,7 +59,7 @@ export default function PaymentWindow() {
         </div>
          
         <hr className="mb-3 mt-2"/>
-        <form >
+        <form onSubmit={onSubmitHandler}>
 
           <div className="mb-7 flex">
             <input

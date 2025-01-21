@@ -3,18 +3,19 @@ import PhoneNumberInput from "./PhoneNumberInput";
 import Captcha from "./Captcha";
 import Toolbar from "./BankIcon";
 import BankIcon from "./BankIcon";
+import { Link, useNavigate } from "react-router-dom";
 
 export default function LoginPage() {
   const [codeMeli, setCodeMeli] = useState("");
 
   const [password, setPassword] = useState("");
+  const navigate = useNavigate()
 
   const handleSubmit = (e) => {
     e.preventDefault();
 
     // تولید CAPTCHA جدید
-    setResetCaptcha(true);
-    setTimeout(() => setResetCaptcha(false), 0); // بازنشانی resetCaptcha
+   // بازنشانی resetCaptcha
 
     // نمایش اطلاعات فرم
     const formData = {
@@ -23,6 +24,7 @@ export default function LoginPage() {
     };
     console.log("Form Data Submitted:", formData);
     alert("Form submitted!");
+    navigate('/Home')
   };
 
   return (
@@ -62,7 +64,7 @@ export default function LoginPage() {
         </button>{" "}
         <p className="mt-4 text-sm font-bold text-center">
           <button className=" mr-2 px-3 py-1 rounded-lg bg-slate-500 text-rose-200 hover:underline ">
-            ساخت حساب{" "}
+            <Link to={'/SignIn'}> ساخت حساب</Link>
           </button>{" "}
           حساب ندارید؟{" "}
         </p>

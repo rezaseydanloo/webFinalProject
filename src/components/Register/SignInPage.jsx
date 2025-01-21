@@ -2,6 +2,8 @@ import { useState } from "react";
 import PhoneNumberInput from "./PhoneNumberInput";
 import Captcha from "./Captcha";
 import BankIcon from "./BankIcon";
+import { Link, useNavigate } from "react-router-dom"; // استفاده از useNavigate
+import HomePage from "../Home page/HomePage";
 
 export default function SignInPage() {
   const [name, setName] = useState("");
@@ -11,6 +13,8 @@ export default function SignInPage() {
   const [phoneNumber, setPhoneNumber] = useState("");
   const [password, setPassword] = useState("");
   const [resetCaptcha, setResetCaptcha] = useState(false);
+  
+  const navigate = useNavigate(); // استفاده از useNavigate
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -19,7 +23,6 @@ export default function SignInPage() {
     setResetCaptcha(true);
     setTimeout(() => setResetCaptcha(false), 0); // بازنشانی resetCaptcha
 
-    // نمایش اطلاعات فرم
     const formData = {
       name,
       lastName,
@@ -30,6 +33,9 @@ export default function SignInPage() {
     };
     console.log("Form Data Submitted:", formData);
     alert("Form submitted!");
+
+    // هدایت به صفحه Home پس از ارسال فرم
+    navigate('/Home');
   };
 
   return (
@@ -104,7 +110,7 @@ export default function SignInPage() {
         </button>{" "}
         <p className="mt-4 text-sm font-bold text-center">
           <button className=" mr-2 px-3 py-1 rounded-lg bg-slate-500 text-rose-200 hover:underline ">
-            ورود به حساب
+            <Link to={'/LogIn'}> ورود به حساب </Link>
           </button>{" "}
           حساب دارید؟{" "}
         </p>

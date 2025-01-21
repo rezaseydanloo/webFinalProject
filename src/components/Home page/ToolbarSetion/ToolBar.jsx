@@ -6,6 +6,7 @@ export default function ToolBar(){
 
     const {setStatus} = useContext(AppContext)
     const {setAdminOption} = useContext(AppContext)
+    const {AdminOption} = useContext(AppContext)
     const {isAdmin} = useContext(AppContext)
 
     return(
@@ -20,7 +21,7 @@ export default function ToolBar(){
             </button>
 
             {isAdmin ? (
-                <button onClick={()=>setAdminOption(false)} className="w-[20%] h-[80%] bg-teal-300 border-2  pb-1 flex justify-center items-center border-teal-700 rounded-xl">
+                <button onClick={()=>setAdminOption(!AdminOption)} className="w-[20%] h-[80%] bg-teal-300 border-2  pb-1 flex justify-center items-center border-teal-700 rounded-xl">
                 قابلیت ادمین
                 </button>
             ) : (true)}
