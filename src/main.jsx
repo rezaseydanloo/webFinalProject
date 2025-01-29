@@ -4,10 +4,22 @@ import './index.css'
 import App from './App.jsx'
 import { BrowserRouter } from 'react-router-dom'
 
-createRoot(document.getElementById('root')).render(
-  <StrictMode>
-    <BrowserRouter>
-      <App />
-    </BrowserRouter>
-  </StrictMode>
-)
+
+
+
+async function deferRender() {
+
+  const {worker } = await import("./mocks/browser.js")
+  return worker.start()
+}
+
+deferRender().then(()=> {
+  createRoot(document.getElementById('root')).render(
+  
+      <BrowserRouter>
+        <App />
+      </BrowserRouter>
+ 
+  );
+});
+  

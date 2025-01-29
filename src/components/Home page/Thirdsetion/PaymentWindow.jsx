@@ -58,14 +58,15 @@ export default function PaymentWindow() {
           </button>
         </div>
          
-        <hr className="mb-3 mt-2"/>
+        <hr className="mb-3 mt-2 border-1 border-teal-500"/>
+
         <form onSubmit={onSubmitHandler}>
 
           <div className="mb-7 flex">
             <input
               type="number"
               id="number"
-              className="w-full caret-white text-black text-center bg-slate-500 p-2 rounded-lg border-0 border-white
+              className="w-full caret-white text-black text-center bg-white p-2 rounded-lg border-0 border-white
               focus:ring-2 focus:ring-red-500 focus:outline-none"
               placeholder="xxxx / xxxx / xxxx / xxxx"
               required
@@ -81,7 +82,7 @@ export default function PaymentWindow() {
             <input
               type="number"
               id="number"
-              className="w-full caret-white text-black text-center bg-slate-500 p-2 rounded-lg border-0 border-white
+              className="w-full caret-white text-black text-center bg-white p-2 rounded-lg border-0 border-white
               focus:ring-2 focus:ring-red-500 focus:outline-none"
               placeholder="   1xx xxx xxx"
               required

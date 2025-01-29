@@ -5,7 +5,6 @@ const Captcha = ({ onVerify, resetCaptcha }) => {
   const [userInput, setUserInput] = useState("");
   const [error, setError] = useState("");
 
-  // تابع تولید CAPTCHA
   const generateCaptcha = () => {
     const characters =
       "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
@@ -20,7 +19,6 @@ const Captcha = ({ onVerify, resetCaptcha }) => {
     setError("");
   };
 
-  // بررسی CAPTCHA
   const handleVerify = () => {
     if (userInput === captcha) {
       setError("");
@@ -54,7 +52,7 @@ const Captcha = ({ onVerify, resetCaptcha }) => {
           placeholder="کد CAPTCHA را وارد کنید"
           value={userInput}
           onChange={(e) => setUserInput(e.target.value)}
-          className="w-full px-4 py-3 text-gray-800 border border-black rounded-lg focus:outline-none focus:ring-2 focus:ring-rose-200"
+          className="w-full px-4 py-3 text-gray-800 border-2 bg-slate-300  border-slate-100 rounded-lg focus:outline-none focus:ring-2 focus:ring-slate-500"
         />
         {error && <p className="text-red-600 text-sm mt-2">{error}</p>}
       </div>

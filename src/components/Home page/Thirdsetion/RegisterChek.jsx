@@ -77,7 +77,7 @@ export default function RegisterChek(){
             </button>
             </div>
             
-            <hr className="mb-3 mt-2"/>
+            <hr className="mb-3 mt-2 border-1 border-teal-600"/>
 
             <form onSubmit={onSubmitHandler} >
 
@@ -87,7 +87,7 @@ export default function RegisterChek(){
                 <input
                 type="number"
                 id="number"
-                className="w-[80%] caret-white text-black text-center bg-slate-500 p-2 rounded-lg border-0 border-white
+                className="w-[80%] caret-white text-black text-center bg-white p-2 rounded-lg border-0 border-white
                 focus:ring-2 focus:ring-red-500 focus:outline-none"
                 placeholder="xxxx / xxxx / xxxx / xxxx"
                 required
@@ -104,7 +104,7 @@ export default function RegisterChek(){
                 <input
                 type="number"
                 id="number"
-                className="w-[80%] caret-white text-black text-center bg-slate-500 p-2 rounded-lg border-0 border-white
+                className="w-[80%] caret-white text-black text-center bg-white p-2 rounded-lg border-0 border-white
                 focus:ring-2 focus:ring-red-500 focus:outline-none"
                 placeholder="xxxx / xxxx / xxxx / xxxx"
                 required
@@ -122,7 +122,7 @@ export default function RegisterChek(){
                 <input
                 type="number"
                 id="number"
-                className="w-[70%] caret-white text-black text-center bg-slate-500 p-2 rounded-lg border-0 border-white
+                className="w-[70%] caret-white text-black text-center bg-white p-2 rounded-lg border-0 border-white
                 focus:ring-2 focus:ring-red-500 focus:outline-none"
                 placeholder="   1xx xxx xxx"
                 required
@@ -139,7 +139,7 @@ export default function RegisterChek(){
                 <input
                 type="date"
                 id="date"
-                className="w-[70%] caret-white text-center bg-slate-500 p-2 rounded-lg border-0 border-white
+                className="w-[70%] caret-white text-center bg-white p-2 rounded-lg border-0 border-white
                 focus:ring-2 focus:ring-red-500 focus:outline-none"
                 placeholder="   1xx xxx xxx"
                 required

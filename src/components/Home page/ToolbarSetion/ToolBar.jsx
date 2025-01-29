@@ -8,6 +8,7 @@ export default function ToolBar(){
     const {setAdminOption} = useContext(AppContext)
     const {AdminOption} = useContext(AppContext)
     const {isAdmin} = useContext(AppContext)
+    
 
     return(
         <div className="w-[98%] h-[5%] border-2 flex items-center gap-x-2 pl-2 border-slate-500 rounded-md bg-slate-700">
@@ -25,8 +26,6 @@ export default function ToolBar(){
                 قابلیت ادمین
                 </button>
             ) : (true)}
-
-
 
             <BankIcon />
 

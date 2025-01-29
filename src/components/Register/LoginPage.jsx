@@ -1,70 +1,80 @@
 import { useState } from "react";
-import PhoneNumberInput from "./PhoneNumberInput";
 import Captcha from "./Captcha";
-import Toolbar from "./BankIcon";
 import BankIcon from "./BankIcon";
 import { Link, useNavigate } from "react-router-dom";
+import axios from "axios";
 
 export default function LoginPage() {
   const [codeMeli, setCodeMeli] = useState("");
-
   const [password, setPassword] = useState("");
-  const navigate = useNavigate()
+  const navigate = useNavigate();
 
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    // تولید CAPTCHA جدید
-   // بازنشانی resetCaptcha
-
-    // نمایش اطلاعات فرم
     const formData = {
-      codeMeli,
-      password,
+      codeMelii: codeMeli,
+      passwordd: password,
     };
+
+    const sendData = async () => {
+      try {
+        const response = await axios.post("/api/login", formData);
+        console.log(response.data); // Server response
+      } catch (error) {
+        console.error(error); // Error handling
+      }
+    };
+
+    sendData();
+
     console.log("Form Data Submitted:", formData);
     alert("Form submitted!");
-    navigate('/Home')
+    navigate("/Home");
   };
 
   return (
-    <div className="flex flex-col items-center justify-center h-screen bg-gradient-to-tl from-slate-900 to-slate-600 ">
+    <div className=" flex items-center justify-center h-screen bg-slate-800">
       <BankIcon />
       <form
         onSubmit={handleSubmit}
-        className="text-rose-200 text-right text-shadow w-full px-6 py-10 bg-gradient-to-tl from-slate-700 to-slate-500 shadow-lg shadow-slate-500 rounded-lg lg:w-1/3 lg:h-3/5"
-      >
-        <h2 className="-mt-3 mb-3 text-5xl font-bold text-center text-rose-200 text-shadow ">
-          ورود به حساب{" "}
+        className="text-slate-200 text-right w-[35%] h-[65%] border-2 border-slate-400 rounded-2xl px-6 bg-slate-700">
+
+        <h2 className="mt-2 mb-6 text-5xl font-bold underline decoration-teal-400 underline-offset-4 text-center text-slate-300">
+          ورود به حساب
         </h2>
-        <div className="mb-2">
+
+        <div className="mb-1">
           <label className="block mb-2 text-sm font-medium">:کد ملی</label>
           <input
             type="text"
             onChange={(e) => setCodeMeli(e.target.value)}
             required
-            className="w-full px-4 py-3 text-gray-800 border border-black rounded-lg focus:outline-none focus:ring-2 focus:ring-rose-200"
+            className="w-full px-4 py-2 text-gray-800 bg-slate-300 border-2 border-white rounded-lg focus:outline-none focus:ring-4 focus:ring-slate-500"
           />
         </div>
+
         <div className="mb-8">
           <label className="block mb-2 text-sm font-medium">:رمز عبور</label>
           <input
             type="password"
             onChange={(e) => setPassword(e.target.value)}
             required
-            className="w-full px-4 py-3 text-gray-800 border border-black rounded-lg focus:outline-none focus:ring-2 focus:ring-rose-200"
+            className="w-full px-4 py-2 text-gray-800 bg-slate-300 border-2 border-white rounded-lg focus:outline-none focus:ring-4 focus:ring-slate-500"
           />
         </div>
+
         <Captcha />
+
         <button
           type="submit"
-          className="mt-2 w-full px-4 py-3 font-semibold text-slate-800 text-shadow bg-rose-200 rounded-lg hover:bg-rose-500 focus:outline-none focus:ring focus:ring-rose-800"
-        >
+          className="mt-6 w-full  px-4 py-2 font-semibold text-slate-800 border-2 border-teal-400 bg-gradient-to-r from-teal-800 to-teal-300 rounded-lg focus:outline-none hover:from-teal-400 hover:to-teal-400">
           Submit
-        </button>{" "}
+        </button>
+
         <p className="mt-4 text-sm font-bold text-center">
-          <button className=" mr-2 px-3 py-1 rounded-lg bg-slate-500 text-rose-200 hover:underline ">
-            <Link to={'/SignIn'}> ساخت حساب</Link>
+          <button className="mr-2 px-3 py-1 rounded-lg bg-slate-600 text-teal-100 hover:underline">
+            <Link to={"/SignIn"}> ساخت حساب</Link>
           </button>{" "}
           حساب ندارید؟{" "}
         </p>
