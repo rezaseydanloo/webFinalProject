@@ -22,8 +22,8 @@ export const handlers = [
     http.get(('/api/maininformation') , (resolver)=>{
         return HttpResponse.json([
             {
-                name : "رضا",
-                lastname : "صیدانلو",
+                name : "diba",
+                lastname : "yanough",
                 nationalcode : "5790111661",
                 cardnumber : "6219861800252396",
                 balance : 1000000,
@@ -40,7 +40,6 @@ export const handlers = [
 
     http.post("/api/login" , async({request})=> {
         const requestBody = await request.json();
-        console.log(requestBody)
         return HttpResponse.json({
             content : requestBody,
             status : "200"
@@ -49,7 +48,6 @@ export const handlers = [
     }),
     http.post("/api/signin" , async({request})=> {
         const requestBody = await request.json();
-        console.log(requestBody)
         localStorage.setItem("signinKey" , JSON.stringify(requestBody))
         return HttpResponse.json({
             status : "200"

@@ -10,32 +10,31 @@ import axios from "axios";
 
 export const AppContext = createContext(null)
 
+let information = {
+    name : "",
+    lastname : "",
+    nationalcode : "",
+    cardnumber : "",
+    balance : "",
+    isAdmin : false
+}
 
 export default function HomePage(){
 
     const [Status , setStatus ] = useState(0)
     const [AdminOption , setAdminOption] = useState(false)
     const [isAdmin , setisAdmin] = useState()
-    const [information , setinformation] = useState([]);
-    const [information2 , setinformation2] = useState({
-        name : "",
-        lastname : "",
-        nationalcode : "",
-        cardnumber : "",
-        balance : "",
-        isAdmin : false
-    });
+    
+    
 
     useEffect(()=>{
 
         const fetchData = async () => {
             try {
               const response = await axios.get('/api/maininformation'); // Retrieved data
-              setinformation(response.data)
-              setinformation2(information[0])
-              setisAdmin(information2.isAdmin)
-              setAdminOption(information2.isAdmin)
-              console.log(information2)
+              setisAdmin(response.data.isAdmin)
+              setAdminOption(response.data.isAdmin)
+              information = response.data[0]
             } catch (error) {
               console.error(error);
             }
@@ -45,7 +44,7 @@ export default function HomePage(){
    
     return(
 
-        <AppContext.Provider value={{Status , setStatus , information2 ,AdminOption , setAdminOption , isAdmin}}>
+        <AppContext.Provider value={{Status , setStatus ,AdminOption , setAdminOption , isAdmin , information}}>
             <div className=" flex items-center  h-screen gap-x-3 justify-center bg-slate-800">
                 {AdminOption ? (
 
